@@ -8,9 +8,9 @@ namespace lab1
 {
     internal class Newton : Solver
     {
-        public override double? Solve(double x = 5, double y = 0, double eps = Constants.Eps)
+        public override double? Solve(double x = -2, double y = 0, double eps = Constants.Eps)
         {
-            double x_prev = 10;
+            double x_prev = -2.5;
             //double x = 5;
             int i = 0;
             while (Math.Abs(x - x_prev) > eps) 
