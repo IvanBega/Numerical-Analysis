@@ -56,7 +56,7 @@ namespace lab2
             }
             for (int i = 0; i < n; i++)
             {
-                matrix[i, n] = rnd.NextDouble() * 100;
+                matrix[i, n] = rnd.NextDouble() * 10;
             }
             if (!modify) return matrix;
 
@@ -71,10 +71,21 @@ namespace lab2
                 if (Math.Abs(matrix[i,i]) < sum)
                 {
                     double diff = Math.Abs(matrix[i, i]) - sum;
-                    matrix[i, i] = diff * rnd.NextDouble() * 5;
+                    matrix[i, i] = diff * rnd.NextDouble() * 20;
                 }
             }
             return matrix;
+        }
+        public static void modifyMatrix(double[,] matrix, int n)
+        {
+            for (int i = 0; i < n; i++)
+            {
+                matrix[i, n] = 0;
+                for (int j = 0; j < n; j++)
+                {
+                    matrix[i, n] += matrix[i, j];
+                }
+            }
         }
     }
 }
