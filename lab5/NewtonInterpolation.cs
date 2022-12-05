@@ -8,6 +8,7 @@ namespace lab5
 {
     internal class NewtonInterpolation : Interpolation
     {
+        private int dd;
         public NewtonInterpolation(int n, int a, int b, double[] Xi) : base(n, a, b, Xi)
         {
         }

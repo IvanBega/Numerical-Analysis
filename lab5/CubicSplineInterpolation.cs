@@ -8,8 +8,13 @@ namespace lab5
 {
     internal class CubicSplineInterpolation : Interpolation
     {
+        CubeSpline[] spline;
+        double[] Si1;
+        double[] Si2;
+        double ai, bi, ci, F, hi_minus, hi_plus, hy1, hy2;
         public CubicSplineInterpolation(int n, int a, int b, double[] Xi) : base(n, a, b, Xi)
-        {
+        { 
+            init();
         }
         private struct CubeSpline
         {
@@ -24,21 +29,18 @@ namespace lab5
             }
             return result;
         }
-
-        private double cubicSplineInterpolationStep(double xi)
+        
+        private void init()
         {
-            CubeSpline[] spline = new CubeSpline[N + 1];
-
-            double ai, bi, ci, F, hi_minus, hi_plus, hy1, hy2;
-
+            spline = new CubeSpline[N + 1];
             for (int i = 0; i < N + 1; i++)
             {
                 spline[i].x = Xi[i];
                 spline[i].a = Yi[i];
             }
             spline[0].c = spline[N].c = 0;
-            double[] Si1 = new double[N + 1];
-            double[] Si2 = new double[N + 1];
+            Si1 = new double[N + 1];
+            Si2 = new double[N + 1];
             Si1[0] = Si2[0] = 0;
 
             for (int i = 1; i < N; ++i)
@@ -62,6 +64,9 @@ namespace lab5
                 spline[i].d = (spline[i].c - spline[i - 1].c) / hi_minus;
                 spline[i].b = (hi_minus * (2.0 * spline[i].c + spline[i - 1].c) / 6.0 + (Yi[i] - Yi[i - 1])) / hi_minus;
             }
+        }
+        private double cubicSplineInterpolationStep(double xi)
+        {
 
             CubeSpline Spl;
 
