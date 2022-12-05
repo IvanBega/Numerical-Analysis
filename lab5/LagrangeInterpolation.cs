@@ -8,16 +8,17 @@ namespace lab5
 {
     internal class LagrangeInterpolation : Interpolation
     {
+
         public LagrangeInterpolation(int n, int a, int b, double[] Xi) : base(n, a, b, Xi)
         {
         }
 
-        public override double[] Interpolate()
+        public override double[] Interpolate(int n, double[] arr)
         {
-            var result = new double[N + 1];
-            for (int i = 0; i <= N; i++)
+            var result = new double[n];
+            for (int i = 0; i < n; i++)
             {
-                result[i] = lagrangeInterpolationStep(Xi[i]);
+                result[i] = lagrangeInterpolationStep(arr[i]);
             }
             return result;
         }

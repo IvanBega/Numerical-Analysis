@@ -37,11 +37,11 @@ namespace lab5
             }
         }
 
-        public abstract double[] Interpolate();
+        public abstract double[] Interpolate(int n, double[] arr);
         protected double Func(double x)
         {
             return (3 * Math.Pow(x, 3) + Math.Pow(x, 2) + 2 * x - 2);
-            //return Math.Sin(x) + Math.Cos(x);
+            //return 3 * Math.Sin(x) + 4 * x * x - 0.6 + 3 * x;
         }
     }
 }

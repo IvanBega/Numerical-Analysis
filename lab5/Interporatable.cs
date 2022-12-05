@@ -8,6 +8,6 @@ namespace lab5
 {
     internal interface Interpolatable
     {
-        public double[] Interpolate();
+        public double[] Interpolate(int n, double[] arr);
     }
 }

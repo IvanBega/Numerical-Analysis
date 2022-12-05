@@ -45,12 +45,12 @@ namespace lab5
             return result;
         }
 
-        public override double[] Interpolate()
+        public override double[] Interpolate(int n, double[] arr)
         {
-            var result = new double[N + 1];
-            for (int i = 0; i <= N; i++)
+            var result = new double[n];
+            for (int i = 0; i < n; i++)
             {
-                result[i] = newtonInterpolationStep(Xi[i]);
+                result[i] = newtonInterpolationStep(arr[i]);
             }
             return result;
         }

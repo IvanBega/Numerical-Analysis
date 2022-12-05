@@ -15,12 +15,12 @@ namespace lab5
         {
             public double a, b, c, d, x;
         }
-        public override double[] Interpolate()
+        public override double[] Interpolate(int n, double[] arr)
         {
-            var result = new double[N + 1];
-            for (int i = 0; i <= N; i++)
+            var result = new double[n];
+            for (int i = 0; i < n; i++)
             {
-                result[i] = cubicSplineInterpolationStep(Xi[i]);
+                result[i] = cubicSplineInterpolationStep(arr[i]);
             }
             return result;
         }
